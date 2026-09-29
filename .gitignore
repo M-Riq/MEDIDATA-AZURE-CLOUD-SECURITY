@@ -1,0 +1,30 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+crash.log
+.terraform.lock.hcl
+
+# Secrets / credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+*.publishsettings
+azureProfile.json
+accessTokens.json
+msal_token_cache.*
+
+# Raw, unredacted evidence (only redacted copies go in docs/screenshots)
+evidence-raw/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
