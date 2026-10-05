@@ -1,0 +1,10 @@
+{
+  "Name": "MediData-ReadOnlyAuditor",
+  "IsCustom": true,
+  "Description": "Read-only access to MediData resources for audit and compliance review. Cannot modify, create or delete anything.",
+  "Actions": ["*/read"],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": ["/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/MediData-Project-A-<LastName>"]
+}

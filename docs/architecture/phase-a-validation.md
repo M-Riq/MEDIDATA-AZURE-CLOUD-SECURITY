@@ -1,21 +1,25 @@
 # Phase A: Environment Validation Results
 
-Labels: **CONFIRMED** means observed in the environment. **PENDING** means not yet verified.
+Labels: **CONFIRMED** means observed in the environment.
 
 | Check | Result | Status | Evidence |
 |---|---|---|---|
-| Subscription active | `Azure subscription 1`, Enabled | CONFIRMED | `00-environment/subscription-overview-*.png` |
-| Offer type / spending limit | Not yet identified | PENDING | `00-environment/subscription-offer-*.png` |
-| Operator role | Owner at subscription scope | CONFIRMED | `00-environment/owner-role-*.png` |
+| Subscription active | `Azure subscription 1`, Enabled | CONFIRMED | `00-environment/subscription-overview-cli.png` |
+| Offer type / spending limit | `FreeTrial_2014-09-01`, spending limit **On** | CONFIRMED | `00-environment/subscription-offer-*.jpeg` |
+| Operator role | Owner at subscription scope | CONFIRMED | `00-environment/owner-role-cli.jpg` |
 | Entra ID role | Global Administrator (can create test users) | CONFIRMED | Noted in text only |
 | Azure Policy restrictions | None assigned | CONFIRMED | `az policy assignment list` returned nothing |
-| Resource providers (8) | All Registered | CONFIRMED | `00-environment/providers-registered-*.png` |
+| Resource providers (8) | All Registered | CONFIRMED | `00-environment/providers-registered-cli.png` |
 | Network quotas | VNets 1000, NSGs 5000 | CONFIRMED | `00-environment/network-quotas-cli.png` |
 | Budget alert | Created | CONFIRMED | `00-environment/cost-budget-alert-portal.png` |
 | Instructor approval of the subscription | Approved | CONFIRMED | Instructor confirmation |
-| Region availability | VNet, NSG, Storage, Key Vault, Log Analytics available in France Central, West Europe, South Africa North, East US | CONFIRMED | `00-environment/region-availability-cli.png` |
+| Region availability | VNet, NSG, Storage, Key Vault, Log Analytics available in France Central, West Europe, South Africa North, East US | CONFIRMED | `00-environment/region-availability-cli.jpeg` |
 | Selected region | `francecentral` | CONFIRMED | |
-| Resource Group | `MediData-Project-A-<LastName>` in francecentral, Succeeded, tagged | CONFIRMED | `01-resource-group/rg-overview-*.png` |
+| Resource Group | `MediData-Project-A-<LastName>` in francecentral, Succeeded, tagged | CONFIRMED | `01-resource-group/rg-overview-*.jpeg` |
+
+## Cost Note
+
+Free Trial with spending limit On: usage beyond the credit disables resources instead of charging a card. The trial has an end date, so grading and the demo must finish before it expires.
 
 ## Region Justification
 
@@ -34,3 +38,5 @@ The operator account is Global Administrator and subscription Owner. Daily admin
 **Fix:** The group was created again as `MediData-Project-A-<LastName>`, following the exam rule (last name only), and verified with `az group show` (`Succeeded`).
 
 **Lesson:** Confirm every deployment through a second independent source (CLI or Activity Log) instead of trusting the Portal workflow alone.
+
+**Issue 2:** Screenshot filenames containing `:` could not be committed through github.dev and are invalid on Windows. **Fix:** files renamed locally and re-uploaded. **Lesson:** use lowercase, hyphen-only filenames.

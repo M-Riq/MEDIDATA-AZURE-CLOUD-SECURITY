@@ -1,0 +1,24 @@
+{
+  "Name": "MediData-DataEngineer",
+  "IsCustom": true,
+  "Description": "Manages MediData storage accounts and databases. Cannot manage networking, firewall rules, security policies, auditing or role assignments.",
+  "Actions": [
+    "*/read",
+    "Microsoft.Storage/*",
+    "Microsoft.Sql/*",
+    "Microsoft.Resources/deployments/*"
+  ],
+  "NotActions": [
+    "Microsoft.Sql/servers/firewallRules/write",
+    "Microsoft.Sql/servers/firewallRules/delete",
+    "Microsoft.Sql/servers/virtualNetworkRules/write",
+    "Microsoft.Sql/servers/virtualNetworkRules/delete",
+    "Microsoft.Sql/servers/auditingSettings/write",
+    "Microsoft.Sql/servers/securityAlertPolicies/write",
+    "Microsoft.Sql/servers/vulnerabilityAssessments/write",
+    "Microsoft.Sql/servers/vulnerabilityAssessments/delete"
+  ],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": ["/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/MediData-Project-A-<LastName>"]
+}

@@ -1,0 +1,20 @@
+{
+  "Name": "MediData-SecurityAdmin",
+  "IsCustom": true,
+  "Description": "Manages security policies, Defender for Cloud security settings and log review for MediData. Cannot create or delete workload resources or enable paid Defender plans.",
+  "Actions": [
+    "*/read",
+    "Microsoft.Security/*",
+    "Microsoft.Authorization/policyAssignments/*",
+    "Microsoft.Authorization/policyExemptions/*",
+    "Microsoft.PolicyInsights/*",
+    "Microsoft.OperationalInsights/workspaces/search/action"
+  ],
+  "NotActions": [
+    "Microsoft.Security/pricings/write",
+    "Microsoft.Security/pricings/delete"
+  ],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": ["/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/MediData-Project-A-<LastName>"]
+}
