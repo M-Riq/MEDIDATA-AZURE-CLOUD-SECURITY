@@ -1,9 +1,24 @@
 # Evidence and Documentation Conventions
 
-## Screenshot Layout (created as each phase produces evidence)
+## Exam Rules for Screenshots
+
+1. Every screenshot must show the **date and time** from the system clock. Keep the Windows taskbar clock visible. In Cloud Shell, also run `date` before the command.
+2. Every screenshot must be clear, legible, and **captioned** in the report. Example: *Figure 3: Resource Group created in France Central with governance tags.*
+
+## Portal + CLI Pairs
+
+Important steps are captured twice:
+
+- **Portal**: shows the configuration as the interface displays it. Include the breadcrumb and the resource name. Zoom the browser to 80-90%.
+- **CLI**: shows the same setting as data. Run `clear; date; <command> -o table` so the command and its output are both visible.
+
+Naming: the same base name with `-portal` or `-cli` at the end, for example `rg-overview-portal.png` and `rg-overview-cli.png`.
+
+## Screenshot Layout
 
 ```text
 docs/screenshots/
+├── 00-environment/
 ├── 01-resource-group/
 ├── 02-rbac/
 ├── 03-vnet/
@@ -12,25 +27,22 @@ docs/screenshots/
 ├── 06-key-vault/
 ├── 07-monitoring/
 ├── 08-alerts/
-└── 09-compliance/
+├── 09-compliance/
+└── 10-cleanup/
 ```
 
-## Filenames
-
-Use the pattern `<area>-<resource>-<what-it-shows>.png`, in lowercase with hyphens.
-Examples: `rbac-securityadmin-role-definition.png`, `web-subnet-nsg-inbound-rules.png`, `storage-cmk-configuration.png`.
+Folders are created only when they receive screenshots.
 
 ## Redaction Checklist (before committing)
 
-- [ ] No subscription ID or tenant ID. Blur them, or show only the last 4 characters
-- [ ] No email addresses, student ID, or real names beyond your last name
+- [ ] No subscription ID, tenant ID, or object IDs
+- [ ] No email addresses or student ID
 - [ ] No keys, SAS tokens, connection strings, or secrets
-- [ ] No object IDs that aren't needed
-- [ ] Keep unredacted originals in `evidence-raw/`, which is git-ignored
+- [ ] Unredacted originals stay in `evidence-raw/`, which is git-ignored
 
-## Status Labels (required in every document)
+## Status Labels
 
-`IMPLEMENTED` · `PROPOSED REMEDIATION` · `CONFIRMED` · `RECOMMENDED` · `ASSUMED`
+`IMPLEMENTED` · `PROPOSED REMEDIATION` · `CONFIRMED` · `RECOMMENDED` · `ASSUMED` · `PENDING`
 
 ## Control Documentation Template
 
