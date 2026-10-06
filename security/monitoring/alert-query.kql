@@ -1,0 +1,11 @@
+// Alert: excessive authorization failures on the Key Vault holding the patient-data CMK
+// Rule: alert-kv-excessive-auth-failures | count > 5 in 15 min | every 15 min | Sev 1
+AzureDiagnostics
+| where ResourceProvider == 'MICROSOFT.KEYVAULT'
+| where httpStatusCode_d in (401, 403)
+
+// Investigation query (Portal Logs blade)
+// AzureDiagnostics
+// | where ResourceProvider == "MICROSOFT.KEYVAULT"
+// | summarize total=count(), denied=countif(httpStatusCode_d in (401,403)) by bin(TimeGenerated, 15m)
+// | order by TimeGenerated desc
