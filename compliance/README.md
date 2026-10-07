@@ -1,6 +1,6 @@
 # Compliance Assessment, Gap Analysis and Remediation (Exam Part 3.1)
 
-Status: assessment **IMPLEMENTED**; gaps 1 and 2 **REMEDIATED** on 2026-10-07; final rescan started 06:55 UTC.
+Status: assessment **IMPLEMENTED**; gaps 1 and 2 **REMEDIATED AND VERIFIED** on 2026-10-07 (rescan result 07:10 UTC).
 
 ## 3.1(a) Assessment Tool
 
@@ -69,7 +69,7 @@ HIPAA assignment findings:
 | 8 | Microsoft Purview / Azure Information Protection for data classification of PHI | Additional | PROPOSED |
 | 9 | Azure DDoS Network Protection on `vnet-medidata-a` | Additional | PROPOSED (cost) |
 
-### Verification after remediation (2026-10-07 06:53 UTC)
+### Verification after remediation (2026-10-07)
 
 | Resource | defaultAction | bypass | VNet rules |
 |---|---|---|---|
@@ -79,7 +79,7 @@ HIPAA assignment findings:
 - Data-Subnet service endpoints: `Microsoft.KeyVault`, `Microsoft.Storage`.
 - `az keyvault key list` from Cloud Shell: **ForbiddenByFirewall** (outside access blocked).
 - Storage encryption: `Microsoft.Keyvault`, key `cmk-medidata-storage`, status `available` (CMK still works via trusted services).
-- Rescan started 06:55 UTC; expected remaining finding: only the NSG false positive.
+- **Rescan result (07:10 UTC):** only `networksecuritygroupsonsubnetsmonitoring` (the false positive) remains. Both service-endpoint findings and `auditdiagnosticsetting` are cleared.
 
 ### Operational impact
 
